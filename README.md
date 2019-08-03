@@ -34,7 +34,7 @@
 
 注意：Address Editor中的地址后面要用到。
 
-##（二）、EES350系统移植
+## （二）、EES350系统移植
 
 将生成比特流进行Export Hardware操作，打开SDK进行下一步操作。
 系统移植需要四个基本模块如下：
@@ -44,7 +44,7 @@
 - 文件系统uramdisk或linaro
 - 设备树devicetree.dtb文件
 
-##（三）、外设驱动的编写、编译与加载
+## （三）、外设驱动的编写、编译与加载
 
 ### 1.驱动的编写
 
@@ -72,7 +72,7 @@
 
 驱动加载成功之后，利用串口调试工具cd到dev文件夹下利用ls命令可以看到先前编写驱动时的设备名称。
 
-##（四）、外设的应用函数编写
+## （四）、外设的应用函数编写
 
 ### 1.设备初始化：Initial函数
 
@@ -112,10 +112,11 @@ void C_HIGH(void)
 }
 ```
 
-##（五）、OpenCV的配置
+## （五）、OpenCV的配置
+
 [OpenCv配置教程](https://blog.csdn.net/brilliantdo/article/details/51417798 "With a Title")
 
-##（六）、图像的读取
+## （六）、图像的读取
 
 首先给出两个网页：[Opencv:Mat 和VDMA数据位数以及VGA数据位数的关系](https://blog.csdn.net/dengshuai_super/article/details/52468505 "With a Title")，[ZYNQ HLS图像处理加速总结(二)——Processing System软件部分](http://xilinx.eetrend.com/d6-xilinx/blog/2016-01/9704.html "With a Title")。
 工程里的视频传输协议为VDMA方式，其基本思路为：从镜头采集图像传输到DDR，从DDR读取图像到HDMI显示，具体协议内容请参照VDMA手册。
@@ -172,7 +173,7 @@ cv::cvtColor(dst_rgb, dst_bgr,COLOR_RGB2BGR);
 void *memcpy(void *dest, const void *src, size_t n);
 ```
 
-##（七）、功能的整合与函数编译
+## （七）、功能的整合与函数编译
 
 完成底层的搭建，外设驱动和应用程序的编写以及图像读取之后，即可在此基础上进行应用开发。开发必定需要多个C文件的链接和交叉编译，我们组利用CMAKE工具生成Makefile，然后进行交叉编译。
 首先需要安装cmake工具及其依赖环境（百度有很多相关教程），并安装cmake-gui工具在UI界面操作省去不必要的繁琐。
